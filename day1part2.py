@@ -25,25 +25,17 @@ words_to_numbers = {'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '
 
 
 for line in day1_input.readlines():
-    string_index = -1
     test_string = ''
     finished_string = ''
+    string_index = -1
     for char in line:
         string_index += 1
-        if char in words_to_numbers.values():
-            finished_string += char
-        else:
-            test_string = line[string_index: string_index + 3]
+        for x in range(6):
+            test_string = line[string_index: string_index + x]
             if test_string in words_to_numbers.keys():
                 finished_string += words_to_numbers.get(test_string)
-            else:
-                test_string = line[string_index: string_index + 4]
-                if test_string in words_to_numbers.keys():
-                    finished_string += words_to_numbers.get(test_string)
-                else:
-                    test_string = line[string_index: string_index + 5]
-                    if test_string in words_to_numbers.keys():
-                        finished_string += words_to_numbers.get(test_string)
+            elif test_string in words_to_numbers.values():
+                finished_string += test_string
         
     #concatenate first and last numbers and make them int
     calibration_number = int(finished_string[0] + finished_string[-1])
