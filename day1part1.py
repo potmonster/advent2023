@@ -1,5 +1,5 @@
 #open file
-day1_input = open("C:/Coding/advent/day1.txt", "r")
+day1_input = open("day1.txt", "r")
 
 #read file
 
